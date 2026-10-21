@@ -20,7 +20,7 @@ pnpm build
 pnpm exec vite preview
 ```
 
-Deploy the generated `dist/` directory to any static host. GitHub Pages deployment is configured in `.github/workflows/deploy.yml`. Every push to `main` runs tests, builds the app, and publishes `dist/`. See [the beginner guide](GETTING-STARTED.md).
+Deploy the generated `dist/` directory to any static host. GitHub Pages serves the generated `gh-pages` branch. Run `pnpm deploy` to test, build, and upload a new website version. Source code stays on `main`. An optional manual Actions workflow is included for a later switch to Actions publishing. See [the beginner guide](GETTING-STARTED.md).
 
 ## Teaching workflow
 

@@ -1,8 +1,7 @@
+# Optional Actions deployment. Switch Settings > Pages to GitHub Actions before running.
 name: Publish Slate
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:

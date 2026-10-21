@@ -63,15 +63,18 @@ pnpm build
 git add .
 git commit -m "Describe what you changed"
 git push
+pnpm deploy
 ```
 
-`git add` selects files, `git commit` records a version, and `git push` uploads it. The GitHub **Actions** tab shows the **Publish Slate** workflow. Once it is green, refresh your bookmarked website. You do not manually upload `node_modules` or `dist`.
+`git add` selects files, `git commit` records a version, and `git push` uploads source code to `main`. **`pnpm deploy` publishes the website**: it runs tests, builds the site, and updates the generated `gh-pages` branch. A temporary clone is cleaned up automatically. Your source files stay untouched.
 
-The workflow installs dependencies, runs unit tests, builds Slate, and publishes the result. If it turns red, open that run and inspect the failed step; the previous successful website normally remains available.
+The GitHub **Actions** tab shows **pages build and deployment**. Once it is green, refresh your bookmarked website. You do not manually upload `node_modules` or `dist`. If deployment fails, open the failed run to inspect the error; the previous successful website normally remains available.
 
 ## Hosting settings
 
-In the repository, open **Settings → Pages**. The publishing source should be **GitHub Actions**. The website link appears on this page once deployment finishes. To publish again without editing files, go to **Actions → Publish Slate → Run workflow**.
+In the repository, open **Settings → Pages**. The publishing source is **Deploy from a branch**, branch **gh-pages**, folder **/ (root)**. The website link appears on this page once deployment finishes.
+
+GitHub did not register the custom Actions workflow during initial setup, so the working setup uses a generated publishing branch. The optional `.github/workflows/deploy.yml` is manual-only; do not run it unless you intentionally switch Pages to GitHub Actions. For normal updates, use `pnpm deploy`.
 
 Public repositories support free GitHub Pages hosting. This setup does not use a paid server or a custom domain. Keep the repository name and website URL stable so existing bookmarks and your storage location remain consistent.
 
