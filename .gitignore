@@ -5,3 +5,8 @@ playwright-report
 
 .pnpm-store
 *.tsbuildinfo
+
+.env
+.env.*
+!.env.example
+.DS_Store

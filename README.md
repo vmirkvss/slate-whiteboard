@@ -1,5 +1,7 @@
 # Slate
 
+[Open the whiteboard](https://vmirkvss.github.io/slate-whiteboard/) · [Beginner guide](GETTING-STARTED.md)
+
 A local-first teaching whiteboard built with React 19, strict TypeScript, Vite, Tailwind CSS and Lucide. No account, backend, analytics, or external font requests. Lessons stay in this browser's IndexedDB; export a `.slate` file to move them between devices.
 
 ## Run
