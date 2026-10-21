@@ -1,0 +1,45 @@
+{
+  "cpu": "Apple M5",
+  "ramGB": 16,
+  "platform": "darwin",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+  "viewport": [
+    1440,
+    1000
+  ],
+  "devicePixelRatio": 1,
+  "rows": [
+    {
+      "strokes": 100,
+      "initialRenderMs": 1.9,
+      "cameraRenderMeanMs": 0.19,
+      "hitTestMs": 1.2,
+      "saveMs": 2.8,
+      "svgMs": 1.1
+    },
+    {
+      "strokes": 1000,
+      "initialRenderMs": 2.9,
+      "cameraRenderMeanMs": 0.9,
+      "hitTestMs": 0.7,
+      "saveMs": 11.5,
+      "svgMs": 3.4
+    },
+    {
+      "strokes": 5000,
+      "initialRenderMs": 3.8,
+      "cameraRenderMeanMs": 1.61,
+      "hitTestMs": 2.1,
+      "saveMs": 38.8,
+      "svgMs": 24.6
+    },
+    {
+      "strokes": 10000,
+      "initialRenderMs": 2.6,
+      "cameraRenderMeanMs": 1.41,
+      "hitTestMs": 1.2,
+      "saveMs": 63.2,
+      "svgMs": 47.5
+    }
+  ]
+}

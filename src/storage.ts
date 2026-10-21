@@ -1,0 +1,6 @@
+import type { Board } from './model';
+let database: Promise<IDBDatabase>;
+function db() { return database ??= new Promise((resolve, reject) => { const r = indexedDB.open('slate', 1); r.onupgradeneeded = () => r.result.createObjectStore('boards', { keyPath: 'id' }); r.onsuccess = () => resolve(r.result); r.onerror = () => reject(r.error); }); }
+export async function save(b: Board) { const d = await db(); return new Promise<void>((resolve, reject) => { const t = d.transaction('boards', 'readwrite'); t.objectStore('boards').put(b); t.oncomplete = () => resolve(); t.onerror = () => reject(t.error); t.onabort = () => reject(t.error); }); }
+export async function list(): Promise<Board[]> { const d = await db(); return new Promise((resolve, reject) => { const r = d.transaction('boards').objectStore('boards').getAll(); r.onsuccess = () => resolve(r.result.sort((a: Board, b: Board) => b.updated - a.updated)); r.onerror = () => reject(r.error); }); }
+export async function remove(id: string) { const d = await db(); return new Promise<void>((resolve, reject) => { const t = d.transaction('boards', 'readwrite'); t.objectStore('boards').delete(id); t.oncomplete = () => resolve(); t.onerror = () => reject(t.error); }); }
