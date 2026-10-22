@@ -234,7 +234,7 @@ export function Canvas(props: Props) {
             }
             else if (action === 'resize') {
                 p.page.elements = original.map(el => { if (!p.selected.has(el.id))
-                    return el; const b = bounds(el); let sx = Math.max(.05, (last.x - b.x) / b.w), sy = Math.max(.05, (last.y - b.y) / b.h); if (e.shiftKey)
+                    return el; const b = bounds(el); let sx = Math.max(.05, (last.x - b.x) / b.w), sy = Math.max(.05, (last.y - b.y) / b.h); if (e.shiftKey || el.type === 'image')
                     sx = sy = Math.max(sx, sy); return { ...el, width: el.type === 'text' ? el.width * sy : el.width, points: el.points.map(pt => ({ ...pt, x: b.x + (pt.x - b.x) * sx, y: b.y + (pt.y - b.y) * sy })) }; });
                 invalidate();
             }
